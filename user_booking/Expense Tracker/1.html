@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Expense Tracker by Prasad</title>
+</head>
+<body>
+    <div class="Expense">
+        <div>
+            <h1>Expense Tracker</h1>
+            <br>
+            <h3> Add Expense Amount</h3>
+            <input type="number" id="expenseAmount" placeholder="&#8377;"></input>
+        </div>
+        <br><br>
+        <div>
+            <h3> Add Expense Description</h3>
+            <input type="text" id="expenseDescription"></input>
+        </div>
+        <br><br>    
+        <div>
+            <h3 class="ccate">Choose Category</h3>
+            <select name="Category" id="category">
+                <option value=""></option>
+                <option value="Fuel">Fuel</option>
+                <option value="Food">Food</option>
+                <option value="Rent">Rent</option>
+                <option value="Other">Other</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Entertainment">Entertainment</option>
+            </select>
+        </div>
+        <br><br>
+        <div>
+            <button onclick="addExpense()">Add Expense</button>
+        </div>
+    </div>
+
+    <div id="expenseList">
+        <!-- Expense items will be displayed here -->
+    </div>
+
+    <script>
+        function addExpense() {
+            var expenseAmount = document.getElementById("expenseAmount").value;
+            var expenseDescription = document.getElementById("expenseDescription").value;
+            var category = document.getElementById("category").value;
+
+            var expense = {
+                amount: expenseAmount,
+                description: expenseDescription,
+                category: category
+            };
+
+            // Retrieve existing expenses from local storage
+            var expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+            expenses.push(expense);
+
+            // Save expenses to local storage
+            localStorage.setItem("expenses", JSON.stringify(expenses));
+
+            // Update expense list on the screen
+            updateExpenseList();
+        }
+
+        function updateExpenseList() {
+            var expenseList = document.getElementById("expenseList");
+            var expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+
+            // Clear existing content
+            expenseList.innerHTML = "";
+
+            // Populate expense list
+            expenses.forEach(function(expense, index) {
+                var listItem = document.createElement("div");
+                listItem.innerHTML = `
+                    <p>Amount: ${expense.amount}</p>
+                    <p>Description: ${expense.description}</p>
+                    <p>Category: ${expense.category}</p>
+                    <button onclick="editExpense(${index})">Edit</button>
+                    <button onclick="deleteExpense(${index})">Delete</button>
+                `;
+                expenseList.appendChild(listItem);
+            });
+        }
+
+        function deleteExpense(index) {
+            var expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+            expenses.splice(index, 1);
+            localStorage.setItem("expenses", JSON.stringify(expenses));
+            updateExpenseList();
+        }
+
+        function editExpense(index) {
+            var expenses = JSON.parse(localStorage.getItem("expenses")) || [];
+            var expense = expenses[index];
+            document.getElementById("expenseAmount").value = expense.amount;
+            document.getElementById("expenseDescription").value = expense.description;
+            document.getElementById("category").value = expense.category;
+
+            // Delete the old entry
+            expenses.splice(index, 1);
+            localStorage.setItem("expenses", JSON.stringify(expenses));
+
+            // Update the expense list
+            updateExpenseList();
+        }
+
+        // Initial update of expense list when the page loads
+        updateExpenseList();
+    </script>
+</body>
+</html>

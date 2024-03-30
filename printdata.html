@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>print data</title>
+</head>
+<body>
+    <form onsubmit="handleforSubmit(event)">
+        <h1>Book Appointment</h1>
+        <label for="username">Name</label>
+        <input type="text" id="username" name="u_name">
+
+        <br><br>
+        
+        <label for="userage">Age</label>
+        <input type="number" id="userage" name="u_age">
+        <br><br>
+
+        
+        <label for="useradds">Address</label>
+        <input type="text" id="useradds" name="u_adds">
+
+
+        <label for="useremail">Email</label>
+        <input type="email" id="useremail" name="u_email">
+
+        <label for="userphone">Phone Number</label>
+        <input type="tel" id="userphone" name="u_phone">
+         
+        
+        <br><br>
+        
+        <label for="usertrans">Transport</label>
+        <input type="text" id="usertrans" name="u_trans">
+
+         
+        <label for="userdate">Date</label> 
+        <input type="date" id="userdate" name="u_date">
+
+        <br><br>
+        <label for="usertime">Time</label>
+        <input type="time" id="usertime" name="u_time">
+        <label>
+         <button type="submit">Submit</button>
+         <button type="reset">reset</button>
+        </label>
+        
+    </form>
+</body>
+<script>
+    function handleforSubmit(event)
+    {
+        event.preventDefault()
+        console.log(event)
+        console.log(event.target.u_name.value)
+        console.log(event.target.u_email.value)
+        console.log(event.target.u_phone.value)
+        console.log(event.target.u_date.value)
+        console.log(event.target.u_age.value)
+        console.log(event.target.u_adds.value)
+        console.log(event.target.u_trans.value)
+        event.preventDefault()
+
+    }
+</script>
+</html>

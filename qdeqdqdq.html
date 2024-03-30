@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body style="margin: 0">
+    <form onsubmit="handleFormSubmit(event)">
+      <label for="username">Username</label>
+      <input type="text" name="username" id="username" />
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" />
+      <label for="phone">Phone No</label>
+      <input type="tel" name="phone" id="phone" />
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+    function handleFormSubmit(event) {
+        event.preventDefault();
+        const name = event.target.username.value;
+        const email = event.target.email.value;
+        const phone = event.target.phone.value;
+        localStorage.setItem('name', name);
+        localStorage.setItem('email', email);
+        localStorage.setItem('phone', phone)
+      
+      const obj = {
+        username: name,
+          email: email,
+          phone: phone
+      }
+localStorage.setItem('userDetails', JSON.stringify(obj));
+    
+    }
+</script>
+  </body>
+  <script src="index.js"></script>
+</html>
