@@ -20,7 +20,7 @@ function addExpense() {
     // Update expense list on the screen
     updateExpenseList();
 
-    alert("Expense added successfully.");
+    // alert("Expense added successfully.");
 }
 
 function updateExpenseList() {
