@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <title>Bus Booking by Prasad</title>
+</head>
+<body>
+    <!-- <form onsubmit="handleFormSubmit(event)"> -->
+    <div class="Booking">
+        <div>
+        <h1 >Bus Booking</h1>
+        <br>
+        <h3> Add Expense Amount</h3>
+         <input type="number" id="expenseAmount" placeholder="&#8377" ></input>
+    </div>
+<br><br>
+  
+    <div>
+        <h3> Add Expense Description</h3>
+        <input type="text" id="expenseDescription"></input>
+    </div>
+<br><br>    
+    <div>
+        <h3 class="ccate">Choose Category</h3>
+        <select name="Category" id="category" >
+            <option value=" "></option>
+            <option value="Fuel">Fuel</option>
+            <option value="Food">Food</option>
+            <option value="Rent">Rent</option>
+            <option value="Other">Other</option>
+            <option value="Clothing">Clothing</option>
+            <option value="Entertainment">Entertainment</option>
+          </select>
+        
+    </div>
+<br>
+<br>
+    <div>
+        <button onclick="addExpense()" id="add">&#8377 ADD EXPENSE</button>
+    </div>
+<div id="expenseList"></div>
+<div id=" footer" class="footer">&copy; 2024 Prasad's Expense Tracker. All rights reserved.</div>
+        </div>
+</div>
+    <script src="script.js"></script>
+</body>
+</html>
