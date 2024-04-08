@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bus Booking</title>
+   
+</head>
+<body>
+    <div class="Booking">
+        <div>
+            <h1 style="text-align: center;">BUS BOOKING</h1>
+        </div>
+        <br>
+    <div>
+        <h3 >Name:</h3>
+        <input type="text"  id="user"  placeholder="Name" ></input>
+    </div>
+<br>
+
+    <div>
+        <h3>Email:</h3>
+        <input type="email" id="email"  placeholder="example@email.com" ></input>
+    </div>
+<br> 
+    <div>
+        <h3>Phone Number:</h3>
+        <input type="tel" id="number"  placeholder="Mobile Number" ></input>
+    </div>  
+    <br>    
+    <div>
+        <h3 class="busNumber">Car Number</h3>
+        <select name="" id="busNumber" >
+            <option value=" "></option>
+            <option value="BUS 1">BUS:1</option>
+            <option value="BUS 2">BUS: 2</option>
+            <option value="BUS 3">BUS: 3</option>
+            
+          </select>
+        
+    </div>
+<br>
+<br>
+    <div>
+        <button onclick="addbooking()" id="add">Book</button>
+    </div>
+<div id="bookingList"></div>
+<!-- <div id=" footer" class="footer">&copy; 2024 Prasad's Bus Booking. All rights reserved.</div> -->
+        </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
