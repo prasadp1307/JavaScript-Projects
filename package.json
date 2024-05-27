@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.8",
+    "path": "^0.12.7",
+    "route": "^0.2.5",
+    "routes": "^2.1.0",
+    "sequelize": "^6.37.3",
+    "server": "^1.0.39"
+  }
+}
